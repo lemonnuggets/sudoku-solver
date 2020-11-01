@@ -1,5 +1,3 @@
-import pygame
-state = 0
 original_grid = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -62,7 +60,6 @@ def deep_copy(ogrid):
 
 def solve(ogrid):
     grid = deep_copy(ogrid)
-    disp(grid)
     for i in range(0, 9):
         for j in range(0, 9):
             if i == 8 and j == 8 and grid[i][j] != 0:
@@ -75,14 +72,14 @@ def solve(ogrid):
                 possible_sols = range(1, 10)
                 for sol in possible_sols:
                     if sol not in row_list and sol not in col_list and sol not in square_list:
-                        print(sol, row_list, col_list, square_list)
+                        # print(sol, row_list, col_list, square_list)
                         grid[i][j] = sol
                         solved_grid = solve(grid)
                         if solved_grid != -1:
                             return solved_grid
                 return -1
 
-print(solve(original_grid))
+disp(solve(original_grid))
 # test_grid = [
 #     [0, 5, 7, 0, 0, 0, 0, 0, 0],
 #     [0, 0, 8, 0, 0, 0, 0, 0, 0],
