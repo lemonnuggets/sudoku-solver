@@ -11,6 +11,7 @@ GRID_COL = (0, 0, 0)
 SPCL_BG_COL = (100, 255, 100)
 BG_COL = (255, 255, 255)
 TEXT_COL = (0, 0, 0)
+DELAY = 0.02
 original_grid = [
     [0, 0, 0, 0, 5, 1, 0, 0, 0],
     [0, 5, 0, 0, 0, 0, 0, 0, 0],
@@ -65,7 +66,7 @@ def solve_and_show(screen, ogrid):
                     if sol not in row_list and sol not in col_list and sol not in square_list:
                         # print(sol, row_list, col_list, square_list)
                         grid.grid_data[i][j] = sol
-                        time.sleep(0.1)
+                        time.sleep(DELAY)
                         draw(screen, grid, i, j)
                         solved_grid = solve_and_show(screen, grid)
                         if solved_grid == pygame.QUIT:
@@ -115,10 +116,8 @@ pygame.display.set_caption('Sudoku Solver')
 running = True
 grid = Grid(original_grid)
 solve_and_show(screen, grid)
-# while running:
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             running = False
-#             break
-#             # sys.exit(0)
-#     solve_and_show(screen, grid)
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+            # sys.exit(0)
