@@ -78,8 +78,7 @@ def solve(ogrid):
                         if solved_grid != -1:
                             return solved_grid
                 return -1
-
-disp(solve(original_grid))
+# disp(solve(original_grid))
 # test_grid = [
 #     [0, 5, 7, 0, 0, 0, 0, 0, 0],
 #     [0, 0, 8, 0, 0, 0, 0, 0, 0],
